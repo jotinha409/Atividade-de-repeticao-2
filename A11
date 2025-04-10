@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Exercicio11 {
+    public void executarExercicio11 (Scanner input) {
+        int numero;
+        int soma = 0 ;
+        int contador = 0;
+        double media;
+
+        System.out.println("Iniciando execução exericio 11 -- Média de números dos alunos");
+
+        do {
+            System.out.println("Digite 0 para encerrar");
+            System.out.print("Digite um número inteiro:");
+            numero = input.nextInt();
+            if (numero != 0 && numero % 2 == 0){
+                soma += numero;
+                contador++;
+            }
+
+        }while(numero != 0);
+
+        if(contador > 0){
+            media = (double) soma / contador;
+            System.out.println("A média dos números pares é " + media);
+        }else{
+            System.out.println("Nenhuma numero par foi digitado");
+        }
+
+
+    }
+}
