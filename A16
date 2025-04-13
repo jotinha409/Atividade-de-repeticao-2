@@ -1,0 +1,86 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Pessoa {
+    int idade;
+    char sexo;
+
+    Pessoa(int idade, char sexo) {
+        this.idade = idade;
+        this.sexo = sexo;
+    }
+
+    @Override
+    public String toString() {
+        return "Idade: " + idade + ", Sexo: " + sexo;
+    }
+}
+
+public class Exercicio16 {
+    public void executarExercicio16(Scanner input) {
+        ArrayList<Pessoa> ListaPessoas = new ArrayList<>();
+
+        System.out.println("Iniciando execução exercício 16 -- Média idade de população");
+
+        char sexo;
+        int idade, SomaIdadeM, SomaIdadeF, countMasculino, countFeminino, opt;
+
+        do {
+            System.out.println("\nEscolha uma opção:");
+            System.out.println("1 -- Listar Pessoas");
+            System.out.println("2 -- Mostrar média de idade por sexo");
+            System.out.println("3 -- Adicionar Pessoa");
+            System.out.println("0 -- Sair");
+            opt = input.nextInt();
+
+            if (opt == 1) {
+                System.out.println("\n--- Lista de Pessoas ---");
+                for (int i = 0; i < ListaPessoas.size(); i++) {
+                    System.out.println((i + 1) + ". " + ListaPessoas.get(i));
+                }
+
+            } else if (opt == 2) {
+                SomaIdadeM = 0; countMasculino = 0;
+                SomaIdadeF = 0; countFeminino = 0;
+
+                for (Pessoa p : ListaPessoas) {
+                    if (p.sexo == 'M') {
+                        SomaIdadeM += p.idade;
+                        countMasculino++;
+                    } else if (p.sexo == 'F') {
+                        SomaIdadeF += p.idade;
+                        countFeminino++;
+                    }
+                }
+
+                double mediaMasculino = countMasculino > 0 ? (double) SomaIdadeM / countMasculino : 0;
+                double mediaFeminino = countFeminino > 0 ? (double) SomaIdadeF / countFeminino : 0;
+
+                System.out.println("\n--- Resultados ---");
+                System.out.printf("Média de idade dos homens: %.2f\n", mediaMasculino);
+                System.out.printf("Média de idade das mulheres: %.2f\n", mediaFeminino);
+
+            } else if (opt == 3) {
+                System.out.println("Cadastro de nova pessoa:");
+
+                System.out.println("Digite o sexo:");
+                System.out.println("(F) Feminino ou (M) Masculino");
+                sexo = input.next().toUpperCase().charAt(0);
+
+                System.out.println("Digite a idade:");
+                idade = input.nextInt();
+
+                ListaPessoas.add(new Pessoa(idade, sexo));
+
+                System.out.println("Pessoa salva com sucesso!\n");
+
+            } else if (opt == 0) {
+                System.out.println("Saindo do programa.");
+
+            } else {
+                System.out.println("Opção inválida.");
+            }
+
+        } while (opt != 0);
+    }
+}
