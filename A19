@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main{
+    public void executarexercicio19(Scanner input){
+        int numero;
+        long fatorial = 1;
+        
+        System.out.println("Iniciando a execução do exercicio 17 -- Número fatorial");
+        System.out.println("Digite um número");
+        numero = input.nextInt();
+        
+        for (int i = 1; i <= numero; numero++ ){
+            fatorial *= i;
+        }
+        System.out.println("O fatorial de " + numero + " é " + fatorial);
+    }
+}
