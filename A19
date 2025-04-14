@@ -1,0 +1,21 @@
+public class Exercicio18 {
+    public void executarExercicio18() {
+        System.out.println("Iniciando execução do exercício 18 -- Números primos");
+        int numero;
+        int divisor;
+        int num;
+
+        for (numero = 2; numero <= 100; numero++) {
+            divisor = 0;  
+            
+            for (num = 1; num <= numero; num++) {
+                if (numero % num == 0) {
+                    divisor++;  
+                }
+            }
+            if (divisor == 2) {
+                System.out.print(numero + " ");
+            }
+        }
+    }
+}
