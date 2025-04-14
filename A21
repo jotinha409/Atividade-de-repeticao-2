@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Exercicio21 {
+    public void executarExercicio21(Scanner input) { 
+        
+        System.out.println("Iniciando execução do exercicio 21 -- Triângulo");
+        
+        System.out.print("Digite o valor do lado A: ");
+        double A = input.nextDouble();
+
+        System.out.print("Digite o valor do lado B: ");
+        double B = input.nextDouble();
+
+        System.out.print("Digite o valor do lado C: ");
+        double C = input.nextDouble();
+
+        if (A < B + C && B < A + C && C < A + B) {
+            System.out.println("Os valores formam um triângulo.");
+        } else {
+            System.out.println("Os valores NÃO formam um triângulo.");
+        }
+    }
+}
