@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Exercicio21{
+
+    public void executarExercicio21 (Scanner input) {
+
+        int opt,pessoas,canal;
+        int totalPessoas = 0;
+        int pessoasCanal4 = 0, pessoasCanal5 = 0, pessoasCanal7 = 0, pessoasCanal12 = 0;
+
+        System.out.println("Executando Exercicio 1 -- Pesquisa de audiência \n");
+
+        do{
+            System.out.println("Numeros de canais da pesquisa (4,5,7,12)");
+            System.out.println("Para cadastrar uma pessoa à pesquisa selecione -- 1");
+            System.out.println("Para calcular a porcentagem da audiência digite -- 2");
+            System.out.println(" -- Sair -- 0");
+            opt = input.nextInt();
+
+            if (opt == 1) {
+                System.out.println("Digite o canal que a pessoa estava assistindo");
+                System.out.println("Canais (4, 5, 7, 12) ");
+                System.out.println("ZERO (0) para nenhum canal");
+                canal = input.nextInt();
+
+                if (canal == 4 | canal == 5 | canal == 7 | canal == 12){
+                    System.out.println("Digite o número de pessoas que estava assistindo o canal " + canal + " naquele momento:");
+                    pessoas = input.nextInt();
+
+                    totalPessoas += pessoas;
+                    if (canal == 4){
+                        pessoasCanal4 += pessoas;
+                    } else if (canal == 5){
+                        pessoasCanal5 += pessoas;
+                    }else if (canal == 7){
+                        pessoasCanal7 += pessoas;
+                    }else if (canal == 12){
+                        pessoasCanal12 += pessoas;
+                    }else{
+                        System.out.println("Canal digitado inválido");
+                    }
+                }
+                if (totalPessoas > 0) {
+
+                    System.out.println("\nPorcentagem de audiência:");
+                    System.out.printf("\nCanal 4: %.2f ", (pessoasCanal4 * 100.0 / totalPessoas));
+                    System.out.print("%");
+                    System.out.printf("\nCanal 5: %.2f", (pessoasCanal5 * 100.0 / totalPessoas));
+                    System.out.print("%");
+                    System.out.printf("\nCanal 7: %.2f", (pessoasCanal7 * 100.0 / totalPessoas));
+                    System.out.print("%");
+                    System.out.printf("\nCanal 12: %.2f", (pessoasCanal12 * 100.0 / totalPessoas));
+                    System.out.print("%");
+                } else {
+                    System.out.println("Nenhuma pessoa foi registrada.");
+                }
+        }
+    }while (opt != 0);
+
+    }
+}
